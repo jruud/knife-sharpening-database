@@ -1,0 +1,15 @@
+#list-container {
+  margin: 2em 0em 2em 0em;
+}
+
+#knife-entries {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 1em;
+}
+
+#knife-entries li {
+  padding-right: 1em;
+  font-size: 1.25em;
+}
