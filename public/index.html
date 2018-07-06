@@ -11,9 +11,18 @@
     <div class="container">
       <h1>Knife Sharpening Database</h1>
 
-      <div id="list-container">
+      <div id="alphabet-container">
         <h2>Browse Knives</h2>
         <ul id="knife-entries"></ul>
+      </div>
+
+      <div id="file-list">
+      </div>
+
+      <div id="individual-item">
+        <h3 id="individual-knife"></h3>
+        <p id="individual-system"></p>
+        <p id="individual-angle"></p>
       </div>
 
       <div id="form-container" class="panel">
@@ -47,6 +56,7 @@
     <script>
       $(document).ready(function () {
         getEntries();
+        refreshFileList();
       });
     </script>
 

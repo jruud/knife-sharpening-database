@@ -1,5 +1,19 @@
-#list-container {
+#alphabet-container {
   margin: 2em 0em 2em 0em;
+}
+
+#file-list {
+  display: block;
+
+}
+.knife-look {
+  text-align: center;
+  justify-content: center;
+  flex: 0 3 32%;
+  padding: 1em;
+  margin: 1em 0em 1em 0em;
+  background-color: #fafafa;
+  border: 2px solid #0b5868;
 }
 
 #knife-entries {
@@ -12,4 +26,14 @@
 #knife-entries li {
   padding-right: 1em;
   font-size: 1.25em;
+}
+
+
+@media (min-width: 540px) {
+  #file-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: .5em;
+  }
 }
