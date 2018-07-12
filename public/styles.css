@@ -6,6 +6,9 @@
   display: block;
 
 }
+
+/* Styling for individual knife div */
+
 .knife-look {
   text-align: center;
   justify-content: center;
@@ -28,6 +31,7 @@
   font-size: 1.25em;
 }
 
+/* Media Queries */
 
 @media (min-width: 540px) {
   #file-list {

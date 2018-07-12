@@ -12,6 +12,9 @@ const mongoose = require('mongoose');
 // Connect to MongoDB and create/use database as configured
 mongoose.connection.openUri(`mongodb://${config.db.username}:${config.db.password}@${config.db.host}/${config.db.dbName}`);
 
+//Import all models
+require('./models/knife.model.js');
+
 const app = express();
 const publicPath = path.resolve(__dirname, '../public');
 app.use(bodyParser.json());
@@ -21,3 +24,6 @@ app.use('/api', router);
 app.listen(config.port, function () {
   console.log(`${config.appName} is listening on port ${config.port}`);
 })
+
+
+console.log("Mongoose ready state:", mongoose.connection.readyState);

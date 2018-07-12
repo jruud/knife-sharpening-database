@@ -5,18 +5,31 @@ const mongoose = require('mongoose');
 //Example Knife Objects
 
 const KNIVES = [
-  {id: 'a', brand: "Chris Reeve Knives", model: "Large Sebenza 21", system: "KME", angle: "22"},
-  {id: 'b', brand: "Benchmade", model: "Contego", system: "KME", angle: "20"},
-  {id: 'c', brand: "Spyderco", model: "Paramilitary 2", system: "Wicked Edge", angle: "18"},
-  {id: 'd', brand: "Holt Bladeworks", model: "Specter", system: "Edge Pro", angle: "19"},
+  {brand: "Chris Reeve Knives", model: "Large Sebenza 21", system: "KME", angle: "22"},
+  {brand: "Benchmade", model: "Contego", system: "KME", angle: "20"},
+  {brand: "Spyderco", model: "Paramilitary 2", system: "Wicked Edge", angle: "18"},
+  {brand: "Holt Bladeworks", model: "Specter", system: "Edge Pro", angle: "19"},
 ];
 
 /**
  * C - reate
  */
 router.post('/file', function(req, res, next) {
-  res.end('Create a new file');
+  const Knife = mongoose.model('Knife')
+  const fileData = {
+    brand: req.body.brand,
+    model: req.body.model
+  };
+
+  Knife.create(fileData, function (err, newKnife) {
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    res.json(newKnife);
+  });
 });
+
 /**
  * R - ead
  */
@@ -46,7 +59,16 @@ router.delete('/file/:fileId', function(req, res, next) {
  * ¯\_(ツ)_/¯ - list
  */
  router.get('/file', function(req, res, next) {
-   res.json(KNIVES);
+    const Knife = mongoose.model('Knife');
+
+    Knife.find({deleted: {$ne: true}}, function(err, files) {
+     if (err) {
+       console.log(err);
+       return res.status(500).json(err);
+     }
+
+     res.json(files);
+   });
  });
 
 
