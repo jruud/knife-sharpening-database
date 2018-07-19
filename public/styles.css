@@ -19,6 +19,15 @@
   border: 2px solid #0b5868;
 }
 
+.edit-button {
+  background-color: white;
+  border: 2px solid #0b5868;
+  padding: .35em 1em .35em 1em;
+  border-radius: .25em;
+  margin-top: 1.5em;
+  font-size: .9em;
+}
+
 #knife-entries {
   display: flex;
   list-style-type: none;

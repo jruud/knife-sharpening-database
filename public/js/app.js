@@ -28,6 +28,7 @@ function renderFiles(knives) {
   const html = knives.map(knife => `
     <div class="knife-look">
       <h3>${knife.brand} ${knife.model}</h3>
+      <input class="edit-button" type="button" onclick="handleEditFileClick(this)" data-knife-id="${knife._id}" value="Edit">
     </div>`);;
 
   return html;
@@ -39,9 +40,24 @@ function renderFiles(knives) {
 function refreshFileList() {
   getKnives()
     .then(knives => {
+
+      window.knifeList = knives;
+
       const html = renderFiles(knives);
       $('#file-list').html(html);
     });
+}
+
+/**
+  * Handle the edit button click to edit a file's data
+  */
+
+function handleEditFileClick(element) {
+  const knifeID = element.getAttribute('data-knife-id');
+
+  const knife = window.knifeList.find( knife => knife._id === knifeID);
+
+
 }
 
 /**
@@ -49,7 +65,6 @@ function refreshFileList() {
  */
 
 function submitFileForm() {
-  console.log("You clicked 'submit'. Congratulations.");
 
   const fileData = {
     brand: $('#knife-brand').val(),
