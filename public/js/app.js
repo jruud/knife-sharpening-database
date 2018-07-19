@@ -49,18 +49,6 @@ function refreshFileList() {
 }
 
 /**
-  * Handle the edit button click to edit a file's data
-  */
-
-function handleEditFileClick(element) {
-  const knifeID = element.getAttribute('data-knife-id');
-
-  const knife = window.knifeList.find( knife => knife._id === knifeID);
-
-
-}
-
-/**
  * Submit the form to add a new knife to the Database
  */
 
@@ -69,7 +57,7 @@ function submitFileForm() {
   const fileData = {
     brand: $('#knife-brand').val(),
     model: $('#knife-model').val(),
-    _id: $('#file-id').val(),
+    _id: $('#knife-id').val(),
   };
 
   let method, url;
@@ -91,9 +79,49 @@ function submitFileForm() {
     .then(response => response.json())
     .then(file => {
       console.log("we have updated the data", file);
+      setForm();
       refreshFileList();
     })
     .catch(err => {
       console.error("A terrible thing has happened", err);
     })
+}
+
+/**
+  * Handle the edit button click to edit a knife's data
+  */
+
+function handleEditFileClick(element) {
+  const knifeID = element.getAttribute('data-knife-id');
+
+  const knife = window.knifeList.find( knife => knife._id === knifeID);
+
+  if (knife) {
+    setForm (knife);
+  }
+}
+
+/**
+  * Set the submit form with the apporpriate data to edit a file or reset the form if no file is selected to edit
+  */
+
+
+function setForm(data) {
+  data = data || {};
+
+  const knife = {
+    brand: data.brand || '',
+    model: data.model || '',
+    _id: data._id || '',
+  };
+
+  $('#knife-brand').val(knife.brand);
+  $('#knife-model').val(knife.model);
+  $('#knife-id').val(knife._id);
+
+  if (knife._id) {
+    $('#form-label').text("Edit Knife");
+  } else {
+    $('#form-label').text("Add Knife");
+  }
 }

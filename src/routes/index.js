@@ -46,9 +46,32 @@ router.post('/file', function(req, res, next) {
 /**
  * U - pdate
  */
-router.put('/file/:fileId', function(req, res, next) {
-  res.end(`Updating file '${req.params.fileId}'`);
-});
+ router.put('/file/:fileId', function(req, res, next) {
+   const Knife = mongoose.model('Knife');
+   const knifeId = req.params.fileId;
+
+   Knife.findById(knifeId, function(err, knife) {
+     if (err) {
+       console.error(err);
+       return res.status(500).json(err);
+     }
+     if (!knife) {
+       return res.status(404).json({message: "File not found"});
+     }
+
+     knife.brand = req.body.brand;
+     knife.model = req.body.model;
+
+     knife.save(function(err, savedFile) {
+       if (err) {
+         console.error(err);
+         return res.status(500).json(err);
+       }
+       res.json(savedFile);
+     })
+
+   })
+ });
 /**
  * D - elete
  */
