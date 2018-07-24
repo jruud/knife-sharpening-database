@@ -81,7 +81,7 @@ function submitFileForm() {
     .then(file => {
       console.log("we have updated the data", file);
       setForm();
-      refreshFileList();
+      // refreshFileList();
     })
     .catch(err => {
       console.error("A terrible thing has happened", err);
@@ -100,6 +100,35 @@ function handleEditFileClick(element) {
   if (knife) {
     setForm (knife);
   }
+}
+
+/**
+  * Handle the delete button click to delete a knife entry
+  */
+
+function handleDeleteFileClick(element) {
+  const fileId = element.getAttribute('data-knife-id');
+
+  if (confirm("Are you sure?")) {
+    deleteFile(fileId);
+  }
+}
+
+function deleteFile (fileId) {
+  const url = '/api/file/' + fileId;
+
+  fetch(url, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' }
+  })
+    .then(response => response.json())
+    .then(response => {
+        console.log("File deleted");
+        refreshFileList();
+      })
+    .catch(err => {
+        console.error("Error deleting file", err);
+      });
 }
 
 /**

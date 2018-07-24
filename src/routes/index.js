@@ -47,10 +47,10 @@ router.post('/file', function(req, res, next) {
  * U - pdate
  */
  router.put('/file/:fileId', function(req, res, next) {
-   const Knife = mongoose.model('Knife');
+   const knife = mongoose.model('Knife');
    const knifeId = req.params.fileId;
 
-   Knife.findById(knifeId, function(err, knife) {
+   knife.findById(knifeId, function(err, knife) {
      if (err) {
        console.error(err);
        return res.status(500).json(err);
@@ -76,7 +76,7 @@ router.post('/file', function(req, res, next) {
  * D - elete
  */
 router.delete('/file/:fileId', function(req, res, next) {
-  const Knife = mongoose.model('Knife');
+  const knife = mongoose.model('Knife');
   const knifeId = req.params.fileId;
 
   knife.findById(knifeId, function(err, knife) {
@@ -94,12 +94,9 @@ router.delete('/file/:fileId', function(req, res, next) {
       res.json(doomedFile);
     })
   })
-  
-  res.end(`Deleting file '${req.params.fileId}'`);
-
 });
 /**
- * ¯\_(ツ)_/¯ - list
+ * List
  */
  router.get('/file', function(req, res, next) {
     const Knife = mongoose.model('Knife');
