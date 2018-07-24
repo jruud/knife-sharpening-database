@@ -76,7 +76,27 @@ router.post('/file', function(req, res, next) {
  * D - elete
  */
 router.delete('/file/:fileId', function(req, res, next) {
+  const Knife = mongoose.model('Knife');
+  const knifeId = req.params.fileId;
+
+  knife.findById(knifeId, function(err, knife) {
+    if (err) {
+      console.error(err);
+      return res.status(500).json(err);
+    }
+    if (!knife) {
+      return res.status(404).json({message: "File not found"});
+    }
+
+    knife.deleted = true;
+
+    knife.save(function(err, doomedFile) {
+      res.json(doomedFile);
+    })
+  })
+  
   res.end(`Deleting file '${req.params.fileId}'`);
+
 });
 /**
  * ¯\_(ツ)_/¯ - list
