@@ -18,7 +18,8 @@
   padding: 1em;
   margin: 1em 0em 1em 0em;
   background-color: #fafafa;
-  border: 2px solid #0b5868;
+  border: 2px solid black;
+  z-index: 3
 }
 
 .flex-container-row {
@@ -27,22 +28,38 @@
   padding: 1em;
 }
 
-.edit-button {
-  background-color: white;
-  border: 2px solid #0b5868;
+.button {
   padding: .35em 1em .35em 1em;
   border-radius: .25em;
   margin: 1.5em .5em 0em .5em;
   font-size: .9em;
+
+}
+
+.edit-button {
+  background-color: white;
+  border: 2px solid black;
+}
+
+.edit-button:hover {
+  background-color: black;
+  color: white;
 }
 
 .delete-button {
   background-color: white;
   border: 2px solid tomato;
-  padding: .35em 1em .35em 1em;
-  border-radius: .25em;
-  margin: 1.5em .5em 0em .5em;
-  font-size: .9em;
+}
+
+.delete-button:hover {
+  background-color: tomato;
+  color: white;
+}
+
+.empty {
+  padding: 1.25em;
+  background: transparent;
+  border: none;
 }
 
 #knife-entries {
@@ -57,9 +74,13 @@
   font-size: 1.25em;
 }
 
+#add-knife-form {
+  max-width: 60%;
+}
+
 /* Media Queries */
 
-@media (min-width: 540px) {
+@media (min-width: 640px) {
   #file-list {
     display: flex;
     flex-wrap: wrap;

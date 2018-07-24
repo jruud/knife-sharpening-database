@@ -29,8 +29,9 @@ function renderFiles(knives) {
     <div class="knife-look">
       <h3>${knife.brand} ${knife.model}</h3>
       <div class="flex-container-row">
-        <input class="edit-button" type="button" onclick="handleEditFileClick(this)" data-knife-id="${knife._id}" value="Edit">
-        <input class="delete-button" type="button" onclick="handleDeleteFileClick(this)" data-knife-id="${knife._id}" value="Delete">
+        <input class="edit-button button" type="button" onclick="handleEditFileClick(this)" data-knife-id="${knife._id}" value="Edit" hidden="true">
+        <input class="delete-button button" type="button" onclick="handleDeleteFileClick(this)" data-knife-id="${knife._id}" value="Delete" hidden="true">
+        <input class="empty" type="button">
       </div>
     </div>`);;
 
@@ -83,7 +84,7 @@ function submitFileForm() {
     .then(file => {
       console.log("we have updated the data", file);
       setForm();
-      // refreshFileList();
+      refreshFileList();
     })
     .catch(err => {
       console.error("A terrible thing has happened", err);
