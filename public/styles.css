@@ -10,8 +10,10 @@
 /* Styling for individual knife div */
 
 .knife-look {
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
   flex: 0 3 32%;
   padding: 1em;
   margin: 1em 0em 1em 0em;
@@ -19,12 +21,18 @@
   border: 2px solid #0b5868;
 }
 
+.flex-container-row {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
 .edit-button {
   background-color: white;
   border: 2px solid #0b5868;
   padding: .35em 1em .35em 1em;
   border-radius: .25em;
-  margin-top: 1.5em;
+  margin: 1.5em .5em 0em .5em;
   font-size: .9em;
 }
 
@@ -33,7 +41,7 @@
   border: 2px solid tomato;
   padding: .35em 1em .35em 1em;
   border-radius: .25em;
-  margin-top: 1.5em;
+  margin: 1.5em .5em 0em .5em;
   font-size: .9em;
 }
 

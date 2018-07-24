@@ -28,8 +28,10 @@ function renderFiles(knives) {
   const html = knives.map(knife => `
     <div class="knife-look">
       <h3>${knife.brand} ${knife.model}</h3>
-      <input class="edit-button" type="button" onclick="handleEditFileClick(this)" data-knife-id="${knife._id}" value="Edit">
-      <input class="delete-button" type="button" onclick="handleDeleteFileClick(this)" data-knife-id="${knife._id}" value="Delete">
+      <div class="flex-container-row">
+        <input class="edit-button" type="button" onclick="handleEditFileClick(this)" data-knife-id="${knife._id}" value="Edit">
+        <input class="delete-button" type="button" onclick="handleDeleteFileClick(this)" data-knife-id="${knife._id}" value="Delete">
+      </div>
     </div>`);;
 
   return html;
