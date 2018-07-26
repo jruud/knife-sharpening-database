@@ -12,7 +12,7 @@ const KNIVES = [
 ];
 
 /**
- * C - reate
+ * Create a knife
  */
 router.post('/file', function(req, res, next) {
   const Knife = mongoose.model('Knife')
@@ -31,7 +31,7 @@ router.post('/file', function(req, res, next) {
 });
 
 /**
- * R - ead
+ * Read
  */
  router.get('/file/:fileId', function(req, res, next) {
    const { fileId } = req.params;
@@ -43,9 +43,12 @@ router.post('/file', function(req, res, next) {
 
    res.json(file);
  });
+
+
 /**
- * U - pdate
+ * Update a knife's data
  */
+
  router.put('/file/:fileId', function(req, res, next) {
    const knife = mongoose.model('Knife');
    const knifeId = req.params.fileId;
@@ -72,9 +75,11 @@ router.post('/file', function(req, res, next) {
 
    })
  });
+
 /**
- * D - elete
+ * Delete knife entry
  */
+
 router.delete('/file/:fileId', function(req, res, next) {
   const knife = mongoose.model('Knife');
   const knifeId = req.params.fileId;
@@ -95,8 +100,10 @@ router.delete('/file/:fileId', function(req, res, next) {
     })
   })
 });
+
+
 /**
- * List
+ * List all knives
  */
  router.get('/file', function(req, res, next) {
     const Knife = mongoose.model('Knife');

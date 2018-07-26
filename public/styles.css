@@ -1,10 +1,63 @@
-#alphabet-container {
+/*
+Reserved for future functionality
+*/
+
+/* #alphabet-container {
   margin: 2em 0em 2em 0em;
 }
 
 #file-list {
   display: block;
 
+} */
+
+/*
+Main body styles
+*/
+
+h1, h2, h3, h4, h5, h6, {
+  font-family: 'Cabin';
+  font-weight: bold;
+}
+
+p {
+  font-family: 'Cabin';
+}
+
+body {
+  background: #F1F7ED;
+}
+
+h1, legend, label {
+  color: white;
+}
+
+h2 {
+  color: #243e36;
+}
+
+.top-bar {
+  background-color: #364958;
+  padding: 3em 0em 3em 0em;
+}
+
+#site-title {
+  padding: 0em 0em 0em 1em;
+}
+
+#form-container {
+  background-color: #364958;
+  padding: 2em;
+}
+
+.flex-container-row {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+.form-control {
+  box-shadow: none;
 }
 
 /* Styling for individual knife div */
@@ -15,51 +68,14 @@
   text-align: center;
   justify-content: space-between;
   flex: 0 3 32%;
-  padding: 1em;
+  padding: 2em;
   margin: 1em 0em 1em 0em;
-  background-color: #fafafa;
-  border: 2px solid black;
+  background-color: #55828B;
   z-index: 3
 }
 
-.flex-container-row {
-  display: flex;
-  justify-content: center;
-  padding: 1em;
-}
-
-.button {
-  padding: .35em 1em .35em 1em;
-  border-radius: .25em;
-  margin: 1.5em .5em 0em .5em;
-  font-size: .9em;
-
-}
-
-.edit-button {
-  background-color: white;
-  border: 2px solid black;
-}
-
-.edit-button:hover {
-  background-color: black;
+.knife-look h3 {
   color: white;
-}
-
-.delete-button {
-  background-color: white;
-  border: 2px solid tomato;
-}
-
-.delete-button:hover {
-  background-color: tomato;
-  color: white;
-}
-
-.empty {
-  padding: 1.25em;
-  background: transparent;
-  border: none;
 }
 
 #knife-entries {
@@ -74,8 +90,52 @@
   font-size: 1.25em;
 }
 
-#add-knife-form {
-  max-width: 60%;
+/* Buttons */
+
+.button {
+  padding: .5em 1em .5em 1em;
+  border-radius: .25em;
+  margin: 1.5em .5em 0em .5em;
+  font-size: 1em;
+
+}
+
+.edit-button {
+  background-color: #364958;
+  color: #F1F7ED;
+  border: 2px solid #364958;
+}
+
+.edit-button:hover {
+  color: black;
+}
+
+.delete-button {
+  background-color: tomato;
+  color: #F1F7ED;
+  border: 2px solid tomato;
+}
+
+.delete-button:hover {
+  color: black;
+}
+
+.empty {
+  padding: 1.39em;
+  background: transparent;
+  border: none;
+}
+
+.btn-success {
+  background-color: #42b57e;
+}
+
+.btn-success:hover {
+  background-color: #87BBA2;
+}
+
+.btn-link {
+  color: white;
 }
 
 /* Media Queries */
@@ -86,5 +146,14 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: .5em;
+  }
+
+  #site-title {
+    margin-left: 3em;
+  }
+
+  #form-container {
+    max-width: 75%;
+    padding: 2.75em;
   }
 }

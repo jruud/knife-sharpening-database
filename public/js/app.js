@@ -1,15 +1,15 @@
 //Add placeholder list of knife entries
 
-function getEntries () {
-  const alphabet = ["a", "b", "c", "d"];
-
-  alphabet.forEach( function(letter) {
-      $('#knife-entries').append("<li>" + letter.toUpperCase() + "</li>");
-  });
-}
+// function getEntries () {
+//   const alphabet = ["a", "b", "c", "d"];
+//
+//   alphabet.forEach( function(letter) {
+//       $('#knife-entries').append("<li>" + letter.toUpperCase() + "</li>");
+//   });
+// }
 
 // /**
-//  * Fetches data from the api
+//  * Fetches a list of all knives in database
 //  */
 function getKnives() {
   return fetch('/api/file')
@@ -22,7 +22,7 @@ function getKnives() {
 }
 
 // /**
-//  * Render a list of files
+//  * Render knives objects into html
 //  */
 function renderFiles(knives) {
   const html = knives.map(knife => `
@@ -41,6 +41,7 @@ function renderFiles(knives) {
 /**
  * Fetch files from the API and render to the page
  */
+
 function refreshFileList() {
   getKnives()
     .then(knives => {
@@ -135,7 +136,7 @@ function deleteFile (fileId) {
 }
 
 /**
-  * Set the submit form with the apporpriate data to edit a file or reset the form if no file is selected to edit
+  * Set the submit form with the apporpriate data to edit a knife or reset the form if no knife is selected to edit
   */
 
 
