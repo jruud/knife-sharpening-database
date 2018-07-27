@@ -93,6 +93,14 @@ function submitFileForm() {
 }
 
 /**
+  * Clear the form if cancel button is clicked
+  */
+
+  function cancelFileForm () {
+    setForm ();
+  }
+
+/**
   * Handle the edit button click to edit a knife's data
   */
 

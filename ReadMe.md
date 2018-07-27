@@ -13,6 +13,15 @@ This application is designed to be a multi-user database for recording and shari
 1. Run "npm start".
 2. Navigate to localhost:3030 in your browser.
 
+## Built With:
+
+* Mongoose
+* Express
+* Node
+* jQuery
+* Bootstrap (with modifications)
+* Google Fonts 
+
 ## Dependencies:
 
 1. express
